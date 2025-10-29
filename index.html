@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Payroll Main Page</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+<div class="box">
+ <h2>PAYROLL PROGRAM</h2>
+
+ <div class="row">
+   <label>ID NUMBER</label>
+   <input type="text" id="idNumber">
+ </div>
+
+ <div class="row">
+   <label>LAST NAME</label>
+   <input type="text" id="lastName">
+ </div>
+
+ <div class="row">
+   <label>FIRST NAME</label>
+   <input type="text" id="firstName">
+ </div>
+
+ <div class="row">
+   <label>MIDDLE NAME</label>
+   <input type="text" id="middleName">
+ </div>
+
+ <div class="row">
+   <label>POSITION</label>
+   <input type="text" id="position">
+ </div>
+
+ <div class="row">
+   <label>RATE (per day)</label>
+   <input type="number" id="rate">
+ </div>
+
+ <div class="row">
+   <label>WORK DAYS</label>
+   <input type="number" id="days">
+ </div>
+
+ <button onclick="goDisplay()">SUBMIT</button>
+</div>
+
+<script>
+function goDisplay(){
+   var data = {
+      idNumber : document.getElementById('idNumber').value,
+      lastName : document.getElementById('lastName').value,
+      firstName: document.getElementById('firstName').value,
+      middleName: document.getElementById('middleName').value.trim() || "N/A",
+      position : document.getElementById('position').value,
+      rate     : parseFloat(document.getElementById('rate').value) || 0,
+      days     : parseInt(document.getElementById('days').value) || 0
+   };
+   localStorage.setItem("payroll", JSON.stringify(data));
+   window.location.href = "payroll1.html";
+}
+</script>
+</body>
+</html>
